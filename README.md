@@ -11,3 +11,6 @@
 ![image](https://user-images.githubusercontent.com/67696918/117564910-7fa01c00-b0e9-11eb-8bce-8dfb9505cace.png)
 ![image](https://user-images.githubusercontent.com/67696918/117565539-c5121880-b0ec-11eb-8030-dfdad973d28c.png)
 ![image](https://user-images.githubusercontent.com/67696918/117565545-cb07f980-b0ec-11eb-9588-4fc0b4c9e99e.png)
+
+## 라즈베리파이 동작 사진
+![image](https://user-images.githubusercontent.com/67696918/117565807-37cfc380-b0ee-11eb-96e2-df72fc10d185.png)
