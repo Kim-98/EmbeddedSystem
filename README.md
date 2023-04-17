@@ -1,16 +1,43 @@
 # Smart Boiler
-> 임베디드시스템 Coap 프로젝트
 
-## 사용 모듈
+## 프로젝트 컨셉
+날씨가 추워지면 거의 모든 가정에선 보일러를 사용합니다. 보일러는 사용하는 만큼 도시가스비용을 납부해야하기 때문에 날씨가 추워질수록 가스비가 많이 나오기 일쑤입니다. 또한 보일러를 깜박하고 끄지 않고 외출하는 일이 생기면 일명 ‘가스비 폭탄’을 맞기도 합니다.
+
+이러한 문제를 보안해보고자 Smart Boiler를 컨셉으로 프로젝트를 진행하게 되었습니다. Smart Boiler는 적외선 센서로 사람의 움직임을 포착하여 일정 시간 움직임이 포착되지 않는 경우에 보일러가 꺼질 수 있도록 하는 기능을 넣어서 기존의 보일러와 차별화를 두었습니다. 기존의 보일러 기능 또한 Smart Boiler에 구현하는 것을 목표로 프로젝트를 진행하였습니다.
+
+## 사용된 부품 및 센서
 ![캡처](https://user-images.githubusercontent.com/67696918/117564854-19b39480-b0e9-11eb-829e-be5af56bf60a.JPG)
+-   RGB led - 온도가 올라가거나 낮아지는 pwm 상태를 확인하고자 red, green led를 사용하였고, 적외선 센서에 움직임이 포착되는 것을 확인하고자 blue led를 사용하였습니다.
+-   FET - 온도를 제어하기 위해 사용하였습니다.
+-   MCP 3204 - 아날로그 신호를 읽어오기 위해 사용하였습니다.
+-   적외선 센서 - Smart Boiler의 핵심 컨셉인 움직임 포착을 위해 사용하였습니다.
 
-## GUI
+## GUI 구성
 ![image](https://user-images.githubusercontent.com/67696918/117564886-567f8b80-b0e9-11eb-9de5-851fb5a5629d.png)
-![image](https://user-images.githubusercontent.com/67696918/117564899-6d25e280-b0e9-11eb-82df-5f0217d7114e.png)
-![image](https://user-images.githubusercontent.com/67696918/117564906-76af4a80-b0e9-11eb-81fc-19721193d263.png)
-![image](https://user-images.githubusercontent.com/67696918/117564910-7fa01c00-b0e9-11eb-8bce-8dfb9505cace.png)
-![image](https://user-images.githubusercontent.com/67696918/117565539-c5121880-b0ec-11eb-8030-dfdad973d28c.png)
-![image](https://user-images.githubusercontent.com/67696918/117565545-cb07f980-b0ec-11eb-9588-4fc0b4c9e99e.png)
 
-## 라즈베리파이 동작 사진
-![image](https://user-images.githubusercontent.com/67696918/117565807-37cfc380-b0ee-11eb-96e2-df72fc10d185.png)
+### GUI 구성요소
+
+-   Button
+    
+    -   On : 보일러를 키는 버튼으로, 서버에서 데이터를 읽어옴.
+    -   Off : 보일러 종료 버튼. GUI가 종료됨.
+    -   Set : 온도 설정 버튼.
+-   Label
+    
+    -   Title : Smart Boiler
+    -   목표 온도 : TextField의 목적 설명.
+    -   기능 설명 : 온도를 감지하는 횟수와 움직임 포착 횟수의 관계 설명.
+    -   기대 효과 : 기존의 보일러와의 차이점 설명.
+-   TextField
+    
+    -   Set버튼 위에 위치한 Field.
+    -   목표 온도를 입력 후 Set버튼을 누르면 Field의 온도가 Server로 전송됨.
+-   TextArea
+    
+    -   현재 서버의 상황을 주기적으로 나타냄.
+
+## 기대효과
+-   에너지 절약: 적외선 센서를 이용해 사람이 없을 때 보일러를 자동으로 꺼줌으로써, 낭비되는 에너지를 최소화할 수 있습니다.
+-   편리성: 온도 설정 기능을 GUI를 통해 쉽게 조절할 수 있습니다.
+-   안전성: 보일러를 깜박하고 켜둔 채로 외출할 경우 발생할 수 있는 사고를 예방할 수 있습니다.
+-   효율성: 기존의 보일러에 비해 더욱 정확한 온도 조절이 가능합니다.
